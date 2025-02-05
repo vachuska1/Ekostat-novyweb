@@ -1,0 +1,271 @@
+/* Reset základních stylů */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+/* Tělo stránky – bílé pozadí a tmavý text pro obsah */
+body {
+    font-family: "Inter", serif;
+    background: #fff; /* bílé pozadí */
+    color: #333;
+    line-height: 1.6;
+}
+.header {
+    font-size: 30px;
+    width: 200px;
+    font-weight: 700;
+    margin-right: 20px;
+    color: rgb(3, 120, 182);
+    text-shadow: 
+        -2px -1px 0 rgb(255, 255, 255),  
+         2px -1px 0 rgb(255, 255, 255),  
+        -2px  1px 0 rgb(255, 255, 255),  
+         2px  1px 0 rgb(255, 255, 255);
+}
+  
+/* Navigační lišta (navbar) – černé pozadí */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(45deg, rgb(7, 223, 144), rgb(1, 70, 37)); /* černá lišta */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* pro umístění hamburgeru */
+    padding: 0 20px;
+    z-index: 100;
+}
+  
+/* Seznam položek menu */
+.menu-items {
+    list-style: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Přidáno pro vycentrování položek */
+    margin: 0;
+    padding: 0;
+}
+  
+/* Jednotlivé položky menu */
+.menu-item {
+    margin: 0 5px;
+    position: relative;
+}
+  
+/* Odkazy v menu – bílé písmo na černém pozadí */
+.menu-item a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 15px;
+    font-size: 12px;
+    transition: color 0.3s, background 0.3s;
+    border-radius: 4px;
+}
+  
+/* Hover efekt a aktivní odkaz s neonovým akcentem */
+.menu-item a:hover,
+.menu-item a.active {
+    background: #00bcd4;
+    color: #000;
+}
+  
+/* Submenu – také černé pozadí, skryté do doby, než se nad položkou najede myší */
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: none;
+    flex-direction: column;
+    border-radius: 4px;
+    z-index: 100;
+}
+  
+.menu-item:hover .submenu {
+    display: flex;
+}
+  
+.submenu a {
+    padding: 10px 15px;
+    color: #fff;
+    white-space: nowrap;
+    transition: background 0.3s;
+}
+ 
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.submenu a:hover {
+    background: #00bcd4;
+    color: #000;
+}
+  
+/* Kontejner pro hamburger ikonu – skrytý pro desktop */
+.Icon {
+    display: none;
+}
+  
+/* Galerie obrázků */
+.image {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 100px auto 2rem auto; /* horní mezera pro fixed navbar */
+}
+  
+#gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+  
+#gallery img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+  
+#gallery img:hover {
+    transform: scale(1.05);
+}
+  
+/* Kontejner pro textový obsah */
+.contentCont {
+    max-width: 1400px;
+    height: auto;
+    margin: 1rem auto;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+  
+#content {
+    text-align: justify;
+    color: #333333;
+}
+  
+/* Patička (footer) – černé pozadí, bílé písmo */
+.Ledge {
+    background: linear-gradient(340deg, rgb(152, 255, 217), rgb(1, 70, 37)); /* černá lišta */
+    color: #fff;
+    padding: 10px 0;
+    width: 100%;
+}
+  
+.Ledge__Local {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0 1rem;
+}
+  
+.Ledge__Local > div {
+    flex: 1 1 300px;
+    margin: 5px;
+}
+.AlignLeft {
+    text-align: left;
+} 
+
+.AlignCenter {
+    text-align: center;
+} 
+.AlignRight {
+    text-align: right;
+} 
+.AlignLeft h3, .AlignCenter h3, .AlignRight h3 {
+    color: rgb(0, 213, 255);
+    margin-top: 20px;
+} 
+
+
+
+
+.icon{
+    display: none;
+    position: fixed;
+    top: 25px;
+    right: 10px;
+    cursor: pointer;
+    z-index: 150;
+}
+
+
+
+/* Responzivní úpravy pro tablety a mobily */
+@media screen and (max-width: 768px) {
+    /* Zobraz hamburger ikonu */
+    .icon{
+      display: block;
+      color: white;
+    }
+    
+    /* Nastavení velikosti samotné ikony a úprava barev (použijeme filtr, pokud SVG není bílé) */
+    .menu-icon {
+      width: 30px;  /* uprav dle potřeby */
+      height: auto;
+      filter: brightness(0) invert(1); /* převede barvy, aby ikona vypadala bíle */
+    }
+    
+    /* Skryjeme původní menu položky – zobrazí se po kliknutí (přidáním třídy .show) */
+    .menu-items {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      text-align: center;
+      background: #000; /* černé pozadí pro kontrast */
+      position: absolute;
+      top: 60px; /* pod navigační lištou */
+      left: 0;
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* Pokud je menu aktivní (třída .show), zobrazí se */
+    .menu-items.show {
+      display: flex;
+    }
+    
+    /* Položky menu v mobilním režimu – s nižším rozestupem */
+    .menu-item {
+      margin: 10px 0;
+    }
+    
+    .menu-item a,
+    .submenu a {
+      font-size: 12px;
+      padding: 10px;
+    }
+    
+    /* Zarovnání obsahu navigační lišty na střed */
+    .navbar {
+      justify-content: center;
+    }
+    
+    #pageTitle {
+        text-align: center;
+    }
+
+    #gallery {
+        grid-template-columns: 1fr; /* Změna na 1 sloupec */
+    }
+    
+    
+    
+    .AlignLeft, .AlignCenter, .AlignRight {
+        text-align: center;
+    } 
+}
