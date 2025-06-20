@@ -3,24 +3,23 @@ document.addEventListener('DOMContentLoaded', function () {
     const pageTitle = document.getElementById('pageTitle');
     const textContent1 = document.getElementById('textContent1');
     const textContent2 = document.getElementById('textContent2');
-const textContent3 = document.getElementById('textContent3');
-const textContent4 = document.getElementById('textContent4');
-const textContent5 = document.getElementById('textContent5');
-const textContent6 = document.getElementById('textContent6');
-const textContent7 = document.getElementById('textContent7');
-const textContent8 = document.getElementById('textContent8');
-const textContent9 = document.getElementById('textContent9');
-const textContent10 = document.getElementById('textContent10');
-const textContent11 = document.getElementById('textContent11');
-const textContent12 = document.getElementById('textContent12');
-const textContent13 = document.getElementById('textContent13');
-const textContent14 = document.getElementById('textContent14');
-const textContent15 = document.getElementById('textContent15');
-const textContent16 = document.getElementById('textContent16');
-const textContent17 = document.getElementById('textContent17');
-const textContent18 = document.getElementById('textContent18');
-const textContent19 = document.getElementById('textContent19');
-
+    const textContent3 = document.getElementById('textContent3');
+    const textContent4 = document.getElementById('textContent4');
+    const textContent5 = document.getElementById('textContent5');
+    const textContent6 = document.getElementById('textContent6');
+    const textContent7 = document.getElementById('textContent7');
+    const textContent8 = document.getElementById('textContent8');
+    const textContent9 = document.getElementById('textContent9');
+    const textContent10 = document.getElementById('textContent10');
+    const textContent11 = document.getElementById('textContent11');
+    const textContent12 = document.getElementById('textContent12');
+    const textContent13 = document.getElementById('textContent13');
+    const textContent14 = document.getElementById('textContent14');
+    const textContent15 = document.getElementById('textContent15');
+    const textContent16 = document.getElementById('textContent16');
+    const textContent17 = document.getElementById('textContent17');
+    const textContent18 = document.getElementById('textContent18');
+    const textContent19 = document.getElementById('textContent19');
 
     const contentTexts = {
         'O nás': {
@@ -50,7 +49,71 @@ const textContent19 = document.getElementById('textContent19');
         'Technologie': {
             title: 'Technologie',
             text1: "Společnost EKOSTAT a.s. se zabývá využitím širokému okruhu odpadních materiálů. Největší pozornost věnujeme zpracování prašných anorganických odpadů, stavebních a demoličních odpadů a odpadních plastů. Stavíme na moderních řešeních, která vedou v průmyslu výroby stavebních hmot a zpracování odpadů ke snižování nákladů a zároveň ke snižování spotřeby přírodních neobnovitelných zdrojů. Opíráme se o vlastní, více jak 20leté zkušenosti v oblasti zpracování vybraných odpadů a jejich praktické využití. Našim cílem je přispívat k udržitelné výrobě stavebních materiálů, a to nejenom efektivním využitím dostupných odpadních materiálů, spoluprací s výrobci stavebních hmot a municipalitami, ale také cílenou osvětou. Navrhujeme konkrétní řešení uplatnění odpadních materiálů, a to nejenom pro zákazníky v ČR, ale i v zahraničí.",
-            textContent18: "ahoj"
+            textContent18: "ahoj",
+            images: [
+                { src: 'image/foto1.png', alt: 'foto 1' },
+                { src: 'image/foto2.png', alt: 'foto 2' },
+                { src: 'image/foto3.png', alt: 'foto 3' },
+                { src: 'image/foto4.png', alt: 'foto 4' }
+            ]
+        },
+        'Umělé kamenivo': {
+            title: 'Umělé kamenivo',
+            text1: 'Naše společnost se specializuje na výrobu a prodej umělého kameniva pro stavební účely. Nabízíme široký sortiment umělého kameniva v různých frakcích a barvách, které nachází uplatnění v architektonických a stavebních projektech.',
+            text2: 'Výhody našich umělých kameniv zahrnují vysokou odolnost vůči povětrnostním vlivům, mrazuvzdornost a dlouhou životnost. Naše kamenivo je vyráběno z kvalitních materiálů s důrazem na ekologickou šetrnost výrobního procesu.',
+            text3: 'Díky široké škále barev a tvarů umožňujeme realizaci různorodých architektonických konceptů. Naše umělé kamenivo je vhodné pro použití v interiérech i exteriérech.',
+            images: [
+                { src: 'image/kamenivo1.jpg', alt: 'kamenivo 1' },
+                { src: 'image/kamenivo2.jpg', alt: 'kamenivo 2' },
+                { src: 'image/kamenivo3.jpg', alt: 'kamenivo 3' },
+                { src: 'image/kamenivo4.jpg', alt: 'kamenivo 4' }
+            ]
+        },
+        'Modulové ploty': {
+            title: 'Modulové ploty',
+            text1: 'Nabízíme moderní řešení oplocení v podobě modulových plotů, které kombinují funkčnost s estetickým vzhledem. Naše modulové ploty se vyznačují rychlou a snadnou montáží, dlouhou životností a minimálními nároky na údržbu.',
+            text2: 'V nabídce máme různé typy výplní a barevných provedení, které umožňují přizpůsobit plot konkrétním požadavkům a stylu okolní architektury. K dispozici jsou také různé výšky a šířky panelů.',
+            text3: 'Naše modulové plotové systémy jsou vhodné pro rodinné domy, průmyslové areály, školní areály a další veřejné prostory. Zajišťují bezpečnost a soukromí, zároveň působí vzdušně a moderně.',
+            images: [
+                { src: 'image/MP1.jpg', alt: 'Modulový plot 1' },
+                { src: 'image/MP2.jpg', alt: 'Modulový plot 2' },
+                { src: 'image/MP3.jpg', alt: 'Modulový plot 3' },
+                { src: 'image/MP4.jpg', alt: 'Modulový plot 4' }
+            ]
+        },
+        'Chytré kontejnery': {
+            title: 'Chytré kontejnery',
+            text1: 'Představujeme inovativní řešení pro efektivní třídění odpadu v obcích a městech. Naše chytré kontejnery jsou vybaveny technologiemi pro sledování jejich naplnění, což umožňuje efektivní plánování svozu odpadu.',
+            text2: 'Systém zahrnuje senzory, které monitorují stav naplnění kontejnerů a tyto informace jsou dostupné v online rozhraní. To umožňuje optimalizovat trasování svozových vozů a snižovat náklady na odvoz odpadu.',
+            images: [
+                { src: 'image/smart1.jpg', alt: 'smart 1' },
+                { src: 'image/smart2.jpg', alt: 'smart 2' },
+                //{ src: 'image/smart3.jpg', alt: 'smart 3' },
+                //{ src: 'image/smart4.jpg', alt: 'smart 4' },
+            ]
+        },
+        'Variabilní rampy': {
+            title: 'Variabilní rampy',
+            text1: 'Nabízíme široký výběr variabilních ramp pro různé typy překážek a výškových rozdílů. Naše rampy jsou vyráběny z odolných materiálů a jsou vhodné pro pěší i cyklistickou dopravu.',
+            text2: 'Hlavní výhody našich ramp zahrnují snadnou montáž, možnost nastavení délky a sklonu, odolnost vůči povětrnostním vlivům a bezpečnostní prvky pro zajištění bezproblémového pohybu.'
+        },
+        'Osvětové hlásiče': {
+            title: 'Osvětové hlásiče',
+            text1: 'Naše osvětlovací a signalizační systémy zajišťují bezpečný pohyb v různých typech budov a veřejných prostor. Nabízíme široké spektrum řešení od základního osvětlení po komplexní bezpečnostní systémy.',
+            text2: 'Naše produkty splňují všechny platné normy a předpisy týkající se osvětlení a signalizace. Zaměřujeme se na energetickou účinnost a dlouhou životnost našich řešení.',
+            images: [
+                { src: 'image/Hlasic1.png', alt: 'Hlasic1' },
+                { src: 'image/Hlasic3.png', alt: 'Hlasic2' },
+            ]
+        },
+        'Mobilní kontejnery': {
+            title: 'Mobilní kontejnery',
+            text1: 'Poskytujeme pronájem mobilních kontejnerů různé velikosti pro stavební práce, rekonstrukce, úklidové práce a další účely. Naše kontejnery jsou vyrobeny z kvalitních materiálů a jsou k dispozici v různých objemech.',
+            text2: 'Výhody našich mobilních kontejnerů zahrnují snadnou manipulaci, odolnost vůči povětrnostním vlivům a možnost přepravy na požadované místo. Zajišťujeme také včasné vyvážení a ekologickou likvidaci odpadu.',
+            images: [
+                { src: 'image/Mobil1.jpg', alt: 'Mobil1' },
+                { src: 'image/Mobil2.jpg', alt: 'Mobil2' },
+            ]
         },
         'Výroba betonu': {
             title: 'Výroba betonu',
@@ -222,14 +285,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
-function toggleMenu() {
-    var menu = document.querySelector('.navbar ul');
-    menu.classList.toggle('show');
-}
-window.onclick = function() {
-    // Volání funkce toggleMenu() po načtení stránky
-    toggleMenu();
-};
+// Removed duplicate toggleMenu function
 
 const pdfLink1 = document.createElement('a');
 pdfLink1.innerText = 'Kompozitní sítě a vlákna Ceník 12024';
@@ -336,18 +392,64 @@ navbarLinks.forEach(function (link) {
             textContent18.appendChild(pdfLink6);
              // Přidá odkaz na PDF 6
         } else {
-            // Skryje odkazy na PDF na ostatních záložkách
-            textContent18.innerHTML = '';
+            // Handle gallery content for all menu items that have images
+            const gallery = document.getElementById('gallery');
+            if (gallery) {
+                // Clear previous gallery content
+                gallery.innerHTML = '';
+                
+                // Check if current content has images and they are in array format
+                if (content.images && Array.isArray(content.images) && content.images.length > 0) {
+                    content.images.forEach(image => {
+                        if (image && image.src) {  // Check if image object and src exist
+                            const imgContainer = document.createElement('div');
+                            imgContainer.style.width = '100%';
+                            imgContainer.style.paddingTop = '56.25%'; /* 16:9 Aspect Ratio (height/width = 9/16 = 0.5625) */
+                            imgContainer.style.position = 'relative';
+                            imgContainer.style.overflow = 'hidden';
+                            imgContainer.style.margin = '10px 0';
+                            imgContainer.style.borderRadius = '4px';
+                            imgContainer.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+                            
+                            const img = document.createElement('img');
+                            img.src = image.src;
+                            img.alt = image.alt || '';
+                            img.style.position = 'absolute';
+                            img.style.top = '0';
+                            img.style.left = '0';
+                            img.style.width = '100%';
+                            img.style.height = '100%';
+                            img.style.objectFit = 'cover';
+                            img.style.objectPosition = 'center';
+                            img.style.display = 'block';
+                            
+                            imgContainer.appendChild(img);
+                            gallery.appendChild(imgContainer);
+                        }
+                    });
+                }
+            }
+            
+            // Clear PDF links on non-Download pages
+            if (dataContent !== 'Download') {
+                textContent18.innerHTML = '';
+            }
         }
     });
 });
 })
 function toggleMenu() {
-    var navbar = document.getElementById("navbar");
-    navbar.classList.toggle("show");
-    var submenus = document.getElementsByClassName("submenu");
-    for (var i = 0; i < submenus.length; i++) {
-        submenus[i].classList.remove("show");
+    const navbar = document.getElementById('navbar');
+    const menuItems = document.querySelector('.menu-items');
+    const submenus = document.getElementsByClassName('submenu');
+    
+    // Toggle menu visibility
+    navbar.classList.toggle('show');
+    if (menuItems) menuItems.classList.toggle('show');
+    
+    // Close all submenus
+    for (let i = 0; i < submenus.length; i++) {
+        submenus[i].classList.remove('show');
     }
 }
 
