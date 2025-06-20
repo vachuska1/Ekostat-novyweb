@@ -21,6 +21,65 @@ document.addEventListener('DOMContentLoaded', function () {
     const textContent18 = document.getElementById('textContent18');
     const textContent19 = document.getElementById('textContent19');
 
+    const menuToggle = document.querySelector('.menu-toggle');
+    const primaryMenu = document.getElementById('primary-menu');
+    const navbar = document.getElementById('navbar');
+
+    // Toggle mobile menu
+    menuToggle.addEventListener('click', () => {
+        const expanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+        menuToggle.setAttribute('aria-expanded', !expanded);
+        primaryMenu.classList.toggle('show');
+        document.body.classList.toggle('menu-open');
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        const isClickInside = navbar.contains(e.target) || menuToggle.contains(e.target);
+        if (!isClickInside && primaryMenu.classList.contains('show')) {
+            primaryMenu.classList.remove('show');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            document.body.classList.remove('menu-open');
+        }
+    });
+
+    // Close menu when clicking on a menu item
+    document.querySelectorAll('.menu-items a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                primaryMenu.classList.remove('show');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                document.body.classList.remove('menu-open');
+            }
+        });
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80, // Account for fixed header
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
     const contentTexts = {
         'O nás': {
             title: 'O nás',
@@ -267,11 +326,150 @@ document.addEventListener('DOMContentLoaded', function () {
    
 
 
+// Mobile menu functionality
 document.addEventListener("DOMContentLoaded", function () {
-    const menuItems = document.querySelectorAll(".navbar a");
+    const menuToggle = document.getElementById('mobile-menu-toggle');
+    const menuItems = document.querySelector('.menu-items');
+    const menuLinks = document.querySelectorAll('.menu-item > a');
+    const submenuLinks = document.querySelectorAll('.submenu a');
+    let isSubmenuOpen = false;
 
-    // Nastavíme položku "Home" jako výchozí aktivní
-    menuItems[0].classList.add("active");
+    // Toggle mobile menu
+    if (menuToggle) {
+        menuToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const isExpanded = this.getAttribute('aria-expanded') === 'true' || false;
+            this.setAttribute('aria-expanded', !isExpanded);
+            menuItems.classList.toggle('show');
+            document.body.classList.toggle('menu-open', !isExpanded);
+            isSubmenuOpen = false;
+        });
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (menuItems.classList.contains('show') && !e.target.closest('.navbar')) {
+            closeMenu();
+        }
+    });
+
+    // Handle menu items with submenus
+    menuLinks.forEach(link => {
+        const submenu = link.nextElementSibling;
+        if (submenu && submenu.classList.contains('submenu')) {
+            const parentItem = link.parentElement;
+            parentItem.classList.add('has-submenu');
+            link.setAttribute('aria-haspopup', 'true');
+            link.setAttribute('aria-expanded', 'false');
+            
+            // Add click handler for menu items with submenus
+            link.addEventListener('click', function(e) {
+                if (window.innerWidth <= 992) { // Only on mobile
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    
+                    // Toggle current submenu
+                    toggleSubmenu(this, !isExpanded);
+                    isSubmenuOpen = !isExpanded;
+                }
+            });
+            
+            // Add click handler for the parent link (navigate when submenu is closed)
+            link.addEventListener('dblclick', function() {
+                if (window.innerWidth <= 992 && !isSubmenuOpen) {
+                    window.location.href = this.href;
+                }
+            });
+        } else {
+            // Handle regular menu items without submenus
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 992) {
+                    closeMenu();
+                }
+            });
+        }
+    });
+
+    // Handle submenu links
+    submenuLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            if (window.innerWidth <= 992) {
+                // Close menu and navigate to the link
+                closeMenu();
+                window.location.href = this.href;
+            }
+        });
+    });
+    
+    // Handle back button behavior for submenus
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && isSubmenuOpen) {
+            const openSubmenu = document.querySelector('.submenu.show');
+            if (openSubmenu) {
+                const button = openSubmenu.previousElementSibling;
+                toggleSubmenu(button, false);
+                isSubmenuOpen = false;
+                e.preventDefault();
+            }
+        }
+    });
+
+    // Close menu on window resize if it becomes desktop view
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 992) {
+            closeMenu();
+        }
+    });
+
+    // Helper function to toggle submenu
+    function toggleSubmenu(button, show) {
+        const submenu = button.nextElementSibling;
+        if (!submenu || !submenu.classList.contains('submenu')) return;
+
+        // Close all other open submenus at the same level
+        const parentItem = button.parentElement;
+        parentItem.parentElement.querySelectorAll('.has-submenu').forEach(item => {
+            if (item !== parentItem) {
+                const otherButton = item.querySelector('> a');
+                const otherSubmenu = item.querySelector('> .submenu');
+                if (otherButton && otherSubmenu) {
+                    otherButton.setAttribute('aria-expanded', 'false');
+                    otherSubmenu.classList.remove('show');
+                }
+            }
+        });
+
+        // Toggle current submenu
+        button.setAttribute('aria-expanded', show ? 'true' : 'false');
+        submenu.classList.toggle('show', show);
+    }
+
+    // Helper function to close the menu
+    function closeMenu() {
+        menuItems.classList.remove('show');
+        if (menuToggle) {
+            menuToggle.setAttribute('aria-expanded', 'false');
+        }
+        document.body.classList.remove('menu-open');
+        
+        // Close all submenus
+        document.querySelectorAll('.submenu.show').forEach(submenu => {
+            submenu.classList.remove('show');
+        });
+        document.querySelectorAll('[aria-expanded="true"]').forEach(button => {
+            button.setAttribute('aria-expanded', 'false');
+        });
+    }
+
+    // Set active menu item
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.menu-item > a').forEach(link => {
+        if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active');
+        }
+    });
 
     menuItems.forEach(function (menuItem) {
         menuItem.addEventListener("click", function () {

@@ -1,53 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Ing. Aleš Vachuška">
     <meta name="description" content="Výzkum ve stavebnictví, zaměření na umělé kamenivo RUGEN a další oblasti stavebního inženýrství.">
     <meta name="keywords" content="stavebnictví, umělé kamenivo, RUGEN, výzkum, inženýrství, technologie staveb">
-    <title>EKOSTAT</title>
+    <title>EKOSTAT a.s. - Inovativní řešení pro stavebnictví</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="image/umele_kamenivo_1.jpg" type="image/jpg">
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="image/umele_kamenivo_1.jpg" sizes="16x16" type="image/png">
-<link rel="icon" href="image/umele_kamenivo_1.jpg" sizes="32x32" type="image/png">
-<link rel="icon" href="image/umele_kamenivo_1.jpg" sizes="48x48" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=AR+One+Sans&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Flex:opsz,wght@8..144,300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- <div class="carousel"> 
-        dasdasdasdasdasg class=dsdaazek" id="obrazek" src="foto1.png" alt="První obrázek">
-    </div> -->
-    <div class="icon" onclick="toggleMenu2()">
-        <img src="menu.svg" alt="Menu Icon" class="menu-icon" >
-    </div>
-    <div class="navbar" id="navbar">
-        <div class="header">EKOSTAT a.s.</div>
-        <ul class="menu-items">
-            <li class="menu-item">
-                <a href="#" class="active" data-content="Technologie" data-title="Technologie">Technologie</a>
-                <ul class="submenu">
-                    <li><a href="#" class="smallFontSize" data-content="Umělé kamenivo" data-title="Umělé kamenivo">Umělé kamenivo</a></li>
-                    <li><a href="#" class="smallFontSize" data-content="Modulové ploty" data-title="Modulové ploty">Modulové ploty</a></li>
-                    <li><a href="#" class="smallFontSize" data-content="Výroba betonu" data-title="Výroba betonu">Výroba betonu</a></li>
-                </ul>
-            </li>
-            <li class="menu-item">
-                <a href="#" data-content="Nakládání s odpady" data-title="Nakládání s odpady">Nakládání s odpady</a>
-                <ul class="submenu">
-                    <li><a href="#" class="smallFontSize" data-content="Chytré kontejnery" data-title="Chytré kontejnery">Chytré kontejnery</a></li>
-                    <li><a href="#" class="smallFontSize" data-content="Variabilní rampy" data-title="Variabilní rampy">Variabilní rampy</a></li>
-                    <li><a href="#" class="smallFontSize" data-content="Osvětové hlásiče" data-title="Osvětové hlásiče">Osvětové hlásiče</a></li>
-                    <li><a href="#" class="smallFontSize" data-content="Mobilní kontejnery" data-title="Mobilní kontejnery">Mobilní kontejnery</a></li>
-                </ul>
-            </li>
-            <li class="menu-item">
-                <a href="#" data-content="Enviroment" data-title="Enviroment">Enviroment</a>
-            </li>
-            <li class="menu-item">
+    
+    <!-- Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="header">EKOSTAT a.s.</a>
+            
+            <!-- Mobile menu toggle -->
+            <button class="menu-toggle" id="mobile-menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="primary-menu">
+                <img src="menu.svg" alt="Menu" class="menu-icon" width="24" height="24">
+                <span class="sr-only">Menu</span>
+            </button>
+            
+            <!-- Main Navigation -->
+            <nav id="primary-menu">
+                <ul class="menu-items">
+                    <li class="menu-item">
+                        <a href="#" class="active" data-content="Technologie" data-title="Technologie">Technologie</a>
+                        <ul class="submenu">
+                            <li><a href="#" class="smallFontSize" data-content="Umělé kamenivo" data-title="Umělé kamenivo">Umělé kamenivo</a></li>
+                            <li><a href="#" class="smallFontSize" data-content="Modulové ploty" data-title="Modulové ploty">Modulové ploty</a></li>
+                            <li><a href="#" class="smallFontSize" data-content="Výroba betonu" data-title="Výroba betonu">Výroba betonu</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#" data-content="Nakládání s odpady" data-title="Nakládání s odpady">Nakládání s odpady</a>
+                        <ul class="submenu">
+                            <li><a href="#" class="smallFontSize" data-content="Chytré kontejnery" data-title="Chytré kontejnery">Chytré kontejnery</a></li>
+                            <li><a href="#" class="smallFontSize" data-content="Variabilní rampy" data-title="Variabilní rampy">Variabilní rampy</a></li>
+                            <li><a href="#" class="smallFontSize" data-content="Osvětové hlásiče" data-title="Osvětové hlásiče">Osvětové hlásiče</a></li>
+                            <li><a href="#" class="smallFontSize" data-content="Mobilní kontejnery" data-title="Mobilní kontejnery">Mobilní kontejnery</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#" data-content="Enviroment" data-title="Enviroment">Enviroment</a>
+                    </li>
+                    <li class="menu-item">
                 <a href="https://www.recyclesound.info/" target="_blank" rel="noopener noreferrer">Recyclesound</a>
             </li>
             <li class="menu-item">
@@ -61,74 +72,98 @@
             </li>
         </ul>
     </div>
-    
+    </nav>
+    </header>
 
-    <div class="image">
-        <div id="gallery">
-            <img src="image/foto1.png" alt="Ukázka projektu">
-            <img src="image/foto2.png" alt="Výroba">
-            <img src="image/foto3.png" alt="Technologie">
-            <img src="image/foto4.png" alt="Kamenictví">
+    <!-- Main Content -->
+    <main id="main-content" class="main-content">
+        <div class="gallery-container">
+            <div id="gallery">
+                <div class="gallery-item">
+                    <img src="image/foto1.png" alt="Ukázka projektu">
+                </div>
+                <div class="gallery-item">
+                    <img src="image/foto2.png" alt="Výroba">
+                </div>
+                <div class="gallery-item">
+                    <img src="image/foto3.png" alt="Technologie">
+                </div>
+                <div class="gallery-item">
+                    <img src="image/foto4.png" alt="Kamenictví">
+                </div>
+            </div>
         </div>
-    </div>
 
-    <div class="contentCont">
-    <div class="content" id="content">
-        <h1 id="pageTitle">Technologie</h1> <br/>
-        <p id="textContent1" class="text-content text-content-1">Společnost EKOSTAT a.s. se zabývá využitím širokému okruhu odpadních materiálů. Největší pozornost věnujeme zpracování prašných anorganických odpadů, stavebních a demoličních odpadů a odpadních plastů. Stavíme na moderních řešeních, která vedou v průmyslu výroby stavebních hmot a zpracování odpadů ke snižování nákladů a zároveň ke snižování spotřeby přírodních neobnovitelných zdrojů. Opíráme se o vlastní, více jak 20leté zkušenosti v oblasti zpracování vybraných odpadů a jejich praktické využití. Našim cílem je přispívat k udržitelné výrobě stavebních materiálů, a to nejenom efektivním využitím dostupných odpadních materiálů, spoluprací s výrobci stavebních hmot a municipalitami, ale také cílenou osvětou. Navrhujeme konkrétní řešení uplatnění odpadních materiálů, a to nejenom pro zákazníky v ČR, ale i v zahraničí.</p>
-<p id="textContent2" class="text-content"></p>
-<p id="textContent3" class="text-content"></p>
-<p id="textContent4" class="text-content"></p>
-<p id="textContent5" class="text-content"></p>
-<p id="textContent6" class="text-content"></p>
-<p id="textContent7" class="text-content"></p>
-<p id="textContent8" class="text-content"></p>
-<p id="textContent9" class="text-content"></p>
-<p id="textContent10" class="text-content"></p>
-<p id="textContent11" class="text-content"></p>
-<p id="textContent12" class="text-content"></p>
-<p id="textContent13" class="text-content"></p>
-<p id="textContent14" class="text-content"></p>
-<p id="textContent15" class="text-content"></p>
-<p id="textContent16" class="text-content"></p>
-<p id="textContent17" class="text-content"></p>
-<p id="textContent18" class="text-content">
-    <a href="TL/pexova_sml.pdf" target="_blank" class="none" id="pdfLink">Technické listy</a>
-</p>
-</div>
-</div>  
-</div>
-</div>
-<div class="Ledge">
-    <div class="Ledge__Local">
-        <div class="Local__Office Local__Head Local__HeadOne AlignLeft">
-            <h3>Korespondenční adresa, kancelář a laboratoř</h3>
-            <p>Mayerova 1067</p>
-            <p>34101 Horažďovice</p>
-            <p>tel.: 602305209</p>
-            <p>e-mail: vachuska@ekostat.cz</p>
+        <div class="content-container">
+            <article class="content" id="content">
+                <h1 id="pageTitle">Technologie</h1>
+                <div class="text-content-wrapper">
+                    <p id="textContent1" class="text-content">Společnost EKOSTAT a.s. se zabývá využitím širokému okruhu odpadních materiálů. Největší pozornost věnujeme zpracování prašných anorganických odpadů, stavebních a demoličních odpadů a odpadních plastů. Stavíme na moderních řešeních, která vedou v průmyslu výroby stavebních hmot a zpracování odpadů ke snižování nákladů a zároveň ke snižování spotřeby přírodních neobnovitelných zdrojů. Opíráme se o vlastní, více jak 20leté zkušenosti v oblasti zpracování vybraných odpadů a jejich praktické využití. Našim cílem je přispívat k udržitelné výrobě stavebních materiálů, a to nejenom efektivním využitím dostupných odpadních materiálů, spoluprací s výrobci stavebních hmot a municipalitami, ale také cílenou osvětou. Navrhujeme konkrétní řešení uplatnění odpadních materiálů, a to nejenom pro zákazníky v ČR, ale i v zahraničí.</p>
+                    <p id="textContent2" class="text-content"></p>
+                    <p id="textContent3" class="text-content"></p>
+                    <p id="textContent4" class="text-content"></p>
+                    <p id="textContent5" class="text-content"></p>
+                    <p id="textContent6" class="text-content"></p>
+                    <p id="textContent7" class="text-content"></p>
+                    <p id="textContent8" class="text-content"></p>
+                    <p id="textContent9" class="text-content"></p>
+                    <p id="textContent10" class="text-content"></p>
+                    <p id="textContent11" class="text-content"></p>
+                    <p id="textContent12" class="text-content"></p>
+                    <p id="textContent13" class="text-content"></p>
+                    <p id="textContent14" class="text-content"></p>
+                    <p id="textContent15" class="text-content"></p>
+                    <p id="textContent16" class="text-content"></p>
+                    <p id="textContent17" class="text-content"></p>
+                    <p id="textContent18" class="text-content">
+                        <a href="TL/pexova_sml.pdf" target="_blank" class="btn" id="pdfLink">Technické listy</a>
+                    </p>
+                </div>
+            </article>
         </div>
-        <div class="Local__Address Local__Head Local__HeadTwo AlignCenter">
-            <h3>Sídlo společnosti</h3>
-            <p>Ekostat a.s.</p>
-            <p>Mánesova 459/46</p>
-            <p>37001 České Budějovice</p>
-            <p>Česká Republika</p>
+    </main>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Korespondenční adresa, kancelář a laboratoř</h3>
+                <address>
+                    <p>Mayerova 1067</p>
+                    <p>341 01 Horažďovice</p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+420602305209">+420 602 305 209</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:vachuska@ekostat.cz">vachuska@ekostat.cz</a></p>
+                </address>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Sídlo společnosti</h3>
+                <address>
+                    <p>Ekostat a.s.</p>
+                    <p>Mánesova 459/46</p>
+                    <p>370 01 České Budějovice</p>
+                    <p>Česká republika</p>
+                </address>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Výrobní závod</h3>
+                <address>
+                    <p>Dubská ulice, areál POLDI Kladno</p>
+                    <p>272 01 Kladno</p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+420602305209">+420 602 305 209</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:vachuska@ekostat.cz">vachuska@ekostat.cz</a></p>
+                </address>
+            </div>
         </div>
-        <div class="Local__Factory Local__Head Local__HeadThree AlignRight">
-            <h3>Výrobní závod</h3>
-            <p>Dubská ulice, areál POLDI Kladno</p>
-            <p>27201 Kladno</p>
-            <p>tel.: 602305209</p>
-            <p>e-mail: vachuska@ekostat.cz</p>
+        
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> EKOSTAT a.s. Všechna práva vyhrazena.</p>
         </div>
-    </div>
-</div>
+    </footer>
 
-</div>
-<!-- <div class="footer">
-    Aleš Vachuška
-</div> -->
+    <script>
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
     <script src="script.js"></script>
 </body>
 </html>

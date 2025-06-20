@@ -1,87 +1,207 @@
-/* Reset základních stylů */
+/* Modern CSS Reset and Base Styles */
+:root {
+    --primary-color: #02a355; /* New green color */
+    --secondary-color: #028a4a; /* Slightly darker green */
+    --accent-color: #000000;
+    --text-color: #333333; /* Dark gray for main text */
+    --text-light: #666666; /* Lighter gray for secondary text */
+    --light-gray: #f5f5f5;
+    --white: #ffffff;
+    --dark-gray: #222222; /* For dark text */
+    --transition: all 0.3s ease;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-  
-/* Tělo stránky – bílé pozadí a tmavý text pro obsah */
+
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+    overflow-x: hidden;
+}
+
 body {
-    font-family: "Inter", serif;
-    background: #fff; /* bílé pozadí */
-    color: #333;
-    line-height: 1.6;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+    line-height: 1.7;
+    color: var(--dark-gray);
+    background-color: var(--white);
+    padding-top: 80px; /* Space for fixed header */
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    position: relative;
 }
-.header {
-    font-size: 30px;
-    width: 200px;
-    font-weight: 700;
-    margin-right: 20px;
-    color: rgb(3, 120, 182);
-    text-shadow: 
-        -2px -1px 0 rgb(255, 255, 255),  
-         2px -1px 0 rgb(255, 255, 255),  
-        -2px  1px 0 rgb(255, 255, 255),  
-         2px  1px 0 rgb(255, 255, 255);
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 20px;
+    position: relative;
+    z-index: 1;
 }
-  
-/* Navigační lišta (navbar) – černé pozadí */
+
+/* Modern Container */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header & Navigation */
 .navbar {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     height: 80px;
-    background: linear-gradient(45deg, rgb(7, 223, 144), rgb(1, 70, 37)); /* černá lišta */
-    display: flex;
-    align-items: center;
-    justify-content: center; /* pro umístění hamburgeru */
+    background: var(--primary-color);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
     padding: 0 20px;
-    z-index: 100;
+    transition: var(--transition);
 }
-  
-/* Seznam položek menu */
-.menu-items {
-    list-style: none;
-    text-align: center;
+
+.navbar.scrolled {
+    height: 70px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center; /* Přidáno pro vycentrování položek */
+    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+    transition: var(--transition);
+}
+
+.header:hover {
+    opacity: 0.9;
+}
+
+/* Menu Items */
+.menu-items {
+    display: flex;
+    list-style: none;
     margin: 0;
     padding: 0;
+    align-items: center;
+    color: var(--white);
 }
-  
+
+/* Menu Items Styling */
+.menu-item {
+    position: relative;
+}
+
+.menu-item > a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: var(--transition);
+    display: block;
+}
+
+.menu-item > a:hover,
+.menu-item > a.active {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Submenu Styling */
+.submenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--white);
+    min-width: 200px;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: var(--transition);
+    z-index: 100;
+}
+
+.menu-item:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.submenu li {
+    list-style: none;
+}
+
+.submenu a {
+    color: var(--text-color);
+    padding: 0.75rem 1.5rem;
+    display: block;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.submenu a:hover {
+    background-color: var(--light-gray);
+    color: var(--primary-color);
+}
+
 /* Jednotlivé položky menu */
 .menu-item {
     margin: 0 5px;
     position: relative;
 }
-  
-/* Odkazy v menu – bílé písmo na černém pozadí */
+
+/* Menu links - white text on green background */
 .menu-item a {
     text-decoration: none;
-    color: #fff;
+    color: var(--white);
     padding: 10px 15px;
-    font-size: 12px;
-    transition: color 0.3s, background 0.3s;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
     border-radius: 4px;
 }
   
-/* Hover efekt a aktivní odkaz s neonovým akcentem */
+/* Hover and active states */
 .menu-item a:hover,
 .menu-item a.active {
-    background: #00bcd4;
-    color: #000;
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--white);
 }
   
-/* Submenu – také černé pozadí, skryté do doby, než se nad položkou najede myší */
+/* Submenu styles */
 .submenu {
     position: absolute;
     top: 100%;
     left: 0;
-    background: #000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    background: var(--white);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     display: none;
     flex-direction: column;
+    border-radius: 4px;
+    min-width: 200px;
+    padding: 8px 0;
     border-radius: 4px;
     z-index: 100;
 }
@@ -91,10 +211,13 @@ body {
 }
   
 .submenu a {
-    padding: 10px 15px;
-    color: #fff;
+    padding: 10px 20px;
+    color: var(--dark-gray);
     white-space: nowrap;
-    transition: background 0.3s;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    font-size: 13px;
+    display: block;
 }
  
 ul {
@@ -104,8 +227,8 @@ ul {
 }
 
 .submenu a:hover {
-    background: #00bcd4;
-    color: #000;
+    background: var(--light-gray);
+    color: var(--primary-color);
 }
   
 /* Kontejner pro hamburger ikonu – skrytý pro desktop */
@@ -114,31 +237,103 @@ ul {
 }
   
 /* Galerie obrázků */
-.image {
-    padding: 2rem;
-    max-width: 1400px;
-    margin: 100px auto 2rem auto; /* horní mezera pro fixed navbar */
+.gallery-container {
+    padding: 1rem 0;
+    background-color: #f9f9f9;
+    border-radius: 10px;
 }
-  
+
 #gallery {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    gap: 1.5rem;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0rem;
 }
-  
-#gallery img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
+
+.gallery-item {
+    position: relative;
     border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    aspect-ratio: 16/9;
+    width: 100%;
 }
-  
-#gallery img:hover {
-    transform: scale(1.05);
+
+/* Responsive styles for gallery */
+@media (max-width: 768px) {
+    #gallery {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+        padding: 0 1rem;
+    }
+    
+    .gallery-item {
+        max-width: 100%;
+    }
 }
-  
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* Content Section */
+.content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 0rem;
+}
+
+.content {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.content h1 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 2.2rem;
+}
+
+.text-content-wrapper {
+    line-height: 1.8;
+}
+
+.text-content {
+    margin-bottom: 1.5rem;
+    color: #444;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+}
+
+.btn:hover {
+    background-color: var(--secondary-color);
+}
+
 /* Kontejner pro textový obsah */
 .contentCont {
     max-width: 1400px;
@@ -208,16 +403,21 @@ ul {
 /* Responzivní úpravy pro tablety a mobily */
 @media screen and (max-width: 768px) {
     /* Zobraz hamburger ikonu */
-    .icon{
+    .icon {
       display: block;
       color: white;
     }
     
-    /* Nastavení velikosti samotné ikony a úprava barev (použijeme filtr, pokud SVG není bílé) */
+    /* Nastavení velikosti samotné ikony a úprava barev */
     .menu-icon {
-      width: 30px;  /* uprav dle potřeby */
-      height: auto;
-      filter: brightness(0) invert(1); /* převede barvy, aby ikona vypadala bíle */
+      width: 30px;
+      height: 30px;
+      display: block;
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      filter: brightness(0) invert(1);
     }
     
     /* Skryjeme původní menu položky – zobrazí se po kliknutí (přidáním třídy .show) */
@@ -268,4 +468,384 @@ ul {
     .AlignLeft, .AlignCenter, .AlignRight {
         text-align: center;
     } 
+}
+
+/* Footer */
+.footer {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 3rem 0 0;
+    margin-top: 3rem;
+    width: 100%;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    gap: 2rem;
+}
+
+/* Individual column alignment */
+.footer-section:first-child {
+    text-align: left;
+    padding-right: 1rem;
+}
+
+.footer-section:nth-child(2) {
+    text-align: center;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0 1rem;
+}
+
+.footer-section:last-child {
+    text-align: right;
+    padding-left: 1rem;
+}
+
+.footer-section {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Align content within sections */
+.footer-section:first-child address,
+.footer-section:first-child h3 {
+    text-align: left;
+}
+
+.footer-section:nth-child(2) address,
+.footer-section:nth-child(2) h3 {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-section:last-child address,
+.footer-section:last-child h3 {
+    text-align: right;
+    margin-left: auto;
+}
+
+.footer-section h3 {
+    color: #fff;
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    position: relative;
+    padding-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+}
+
+.footer-section address {
+    font-style: normal;
+}
+
+.footer-section p {
+    margin: 0.75rem 0;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+}
+
+.footer-section a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-section a:hover {
+    color: var(--accent-color);
+    transform: translateX(3px);
+}
+
+.footer-section i {
+    margin-right: 0.75rem;
+    width: 20px;
+    text-align: center;
+    color: var(--accent-color);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Mobile Navigation */
+.menu-toggle {
+    display: none; /* Hidden by default, shown in media query */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 15px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 9999;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.menu-toggle:focus {
+    outline: none;
+}
+
+.menu-icon {
+    width: 30px;
+    height: 30px;
+    display: block;
+    filter: brightness(0) invert(1);
+    transition: transform 0.3s ease;
+}
+
+/* Mobile menu styles */
+@media (max-width: 992px) {
+    .menu-toggle {
+        display: flex; /* Show on mobile */
+    }
+    .menu-items {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        right: 0;
+        max-height: calc(100vh - 80px);
+        background-color: #fff;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        padding: 10px 0;
+        margin: 0;
+        list-style: none;
+    }
+    
+    .menu-items.show {
+        display: flex;
+        animation: slideDown 0.3s ease-out;
+    }
+    
+    .menu-item {
+        margin: 0;
+        position: relative;
+    }
+    
+    .menu-item > a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 20px;
+        color: #333;
+        font-size: 16px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        position: relative;
+        cursor: pointer;
+    }
+    
+    .menu-item > a:hover,
+    .menu-item > a:focus {
+        background-color: #f0f4f8;
+        color: var(--primary-color);
+        outline: none;
+    }
+    
+    /* Add arrow for items with submenus */
+    .menu-item.has-submenu > a::after {
+        content: '›';
+        font-size: 1.2em;
+        margin-left: 10px;
+        transition: transform 0.3s ease;
+        display: inline-block;
+    }
+    
+    .menu-item.has-submenu > a[aria-expanded="true"]::after {
+        transform: rotate(90deg);
+    }
+    
+    .submenu {
+        display: none;
+        background-color: #f8f9fa;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    
+    .submenu.show {
+        display: block;
+        animation: fadeIn 0.2s ease-out;
+    }
+    
+    .submenu a {
+        display: block;
+        padding: 12px 30px 12px 40px;
+        color: #555;
+        font-size: 14px;
+        font-weight: 400;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    }
+    
+    .submenu a:hover,
+    .submenu a:focus {
+        background-color: #f1f3f5;
+        color: var(--primary-color);
+        padding-left: 45px;
+    }
+    
+    /* Add dropdown arrow for items with submenus */
+    .menu-item.has-submenu > a::after {
+        content: '▼';
+        font-size: 0.6em;
+        margin-left: 8px;
+        transition: transform 0.3s ease;
+        display: inline-block;
+    }
+    
+    .menu-item.has-submenu > a[aria-expanded="true"]::after {
+        transform: rotate(180deg);
+    }
+    
+    /* Animation for menu items */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Prevent body scroll when menu is open */
+    body.menu-open {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* Make menu full screen on very small devices */
+@media (max-width: 480px) {
+    .menu-items {
+        height: calc(100vh - 80px);
+    }
+    
+    .menu-item > a {
+        padding: 18px 20px;
+    }
+    
+    .submenu a {
+        padding: 16px 30px;
+    }
+}
+
+/* Responsive Footer */
+@media (max-width: 992px) {
+    .footer-container {
+        gap: 2.5rem;
+        padding: 0 2rem;
+    }
+    
+    .footer-section {
+        flex: 1 1 45%;
+    }
+}
+
+@media (max-width: 992px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .footer-section:first-child,
+    .footer-section:nth-child(2),
+    .footer-section:last-child {
+        text-align: center;
+        padding: 0 1rem;
+        border: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 2rem;
+    }
+
+    
+    .footer-section:last-child {
+        border-bottom: none;
+    }
+    
+    .footer-section address,
+    .footer-section h3 {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 2.5rem 0 0;
+    }
+    
+    .footer-container {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 0 1.5rem;
+    }
+    
+    .footer-section {
+        flex: 1 1 100%;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+    
+    .footer-section h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1.25rem;
+    }
+    
+    .footer-section h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .footer-bottom {
+        margin-top: 2rem;
+        padding: 1rem 0;
+    }
+}
+
+.footer-bottom {
+    background-color: rgba(0, 0, 0, 0.15);
+    text-align: center;
+    padding: 1.25rem 0;
+    margin-top: 2.5rem;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
 }
