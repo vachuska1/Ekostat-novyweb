@@ -154,7 +154,11 @@ document.addEventListener('DOMContentLoaded', function () {
         'Variabilní rampy': {
             title: 'Variabilní rampy',
             text1: 'Nabízíme široký výběr variabilních ramp pro různé typy překážek a výškových rozdílů. Naše rampy jsou vyráběny z odolných materiálů a jsou vhodné pro pěší i cyklistickou dopravu.',
-            text2: 'Hlavní výhody našich ramp zahrnují snadnou montáž, možnost nastavení délky a sklonu, odolnost vůči povětrnostním vlivům a bezpečnostní prvky pro zajištění bezproblémového pohybu.'
+            text2: 'Hlavní výhody našich ramp zahrnují snadnou montáž, možnost nastavení délky a sklonu, odolnost vůči povětrnostním vlivům a bezpečnostní prvky pro zajištění bezproblémového pohybu.',
+            images: [
+                { src: 'image/variabilni1.png', alt: 'Variabilní rampa 1' },
+                { src: 'image/variabilni2.png', alt: 'Variabilní rampa 2' }
+            ]
         },
         'Osvětové hlásiče': {
             title: 'Osvětové hlásiče',
@@ -236,18 +240,17 @@ document.addEventListener('DOMContentLoaded', function () {
         'Nakládání s odpady': {
             title: 'Nakládání s odpady',
             nadpis1: "",
-            text1: 'Navrhujeme přímé řešení likvidace odpadů odběratelskými společnostmi a navrhujeme materiálové řešení uplatnění všech tříděných složek komunálního odpadů ve vztahu na budování lokální ekonomiky.',
+            text1: 'Navrhujeme přímé řešení sběru a likvidace odpadů a navrhujeme materiálové řešení uplatnění všech tříděných složek komunálního odpadů ve vztahu na budování lokální ekonomiky.',
             nadpis2: "",
-            text2: 'Pro obce a města navrhujeme autonomní systémy nakládání s odpady. Nesoustředíme se pouze na analýzy produkce odpadů, navrhujeme spádově vhodné sběrné nádoby, sběrná místa i samotné sběrné dvory. Moderní způsob nakládání s odpady doplňujeme vzdělávacími a motivačními systémy tak, aby bylo nakládání s odpady efektivní, co nejméně nákladné a spravedlivé pro všechny, kdo se ho účastní.',
+            text2: 'Pro obce a města navrhujeme nejmodernější autonomní systémy nakládání s odpady. Nesoustředíme se pouze na analýzy produkce odpadů, navrhujeme spádově vhodné sběrné nádoby, sběrná místa i samotné sběrné dvory. Moderní způsob nakládání s odpady doplňujeme vzdělávacími a motivačními systémy tak, aby bylo nakládání s odpady efektivní, co nejméně nákladné a spravedlivé pro všechny, kdo se ho účastní.',
             nadpis3: "",
-            text3: 'Naším cílem je motivovat občany a společnosti, aby mnohem více, a přitom přirozeným způsobem nakládali s odpadem, měli povědomí o jeho skutečných nákladech. Města a obce se snažíme motivovat k tomu, aby se snažily využívat svých možností a zájmu občanů a podnikatelských subjektů k podpoře snižování množství odpadů a jeho přímého zpracování, v rámci podpory lokální ekonomiky.',
-            nadpis4: "  ●  Zpracování analýz pro efektivní nakládání s odpady",
-            text4: '',
-            nadpis5: "  ●  Zastupování obcí při jednáních s odpadovými společnostmi",
-            text5: '',
-            nadpis6: "  ●  Návrhy realizace a rekonstrukce sběrných dvorů a sběrných míst",
-            text6: '',
-
+            text3: 'Naším cílem je motivovat občany a společnosti, aby mnohem více, a přitom přírozeným způsobem nakládali s odpadem, měli povědomí o jeho skutečných nákladech. Města a obce se snažíme motivovat k tomu, aby se snažily využívat svých možností a zájmu občanů a podnikatelských subjektů k podpoře snižování množství odpadů a jeho přímého zpracování, v rámci podpory lokální ekonomiky.',
+            images: [
+                { src: 'image/smart2.png', alt: 'Chytrý kontejner' },
+                { src: 'image/hl1.png', alt: 'Hlásič naplnění' },
+                { src: 'image/variabilni2.png', alt: 'Variabilní rampa' },
+                { src: 'image/bio.png', alt: 'Bioodpad' }
+            ]
         },
         'Lokální ekonomika': {
             title: 'Lokální ekonomika',
