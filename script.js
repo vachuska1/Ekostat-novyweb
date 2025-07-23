@@ -1,4 +1,36 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // Add click event to logo to show default view with Technologie text and images
+    const logo = document.querySelector('.header');
+    if (logo) {
+        logo.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Set page title and content
+            if (pageTitle) pageTitle.textContent = 'Technologie';
+            if (textContent1) {
+                textContent1.innerHTML = 'Společnost EKOSTAT a.s. se zabývá využitím širokému okruhu odpadních materiálů. Největší pozornost věnujeme zpracování prašných anorganických odpadů, stavebních a demoličních odpadů a odpadních plastů. Stavíme na moderních řešeních, která vedou v průmyslu výroby stavebních hmot a zpracování odpadů ke snižování nákladů a zároveň ke snižování spotřeby přírodních neobnovitelných zdrojů. Opíráme se o vlastní, více jak 20leté zkušenosti v oblasti zpracování vybraných odpadů a jejich praktické využití. Našim cílem je přispívat k udržitelné výrobě stavebních materiálů, a to nejenom efektivním využitím dostupných odpadních materiálů, spoluprací s výrobci stavebních hmot a municipalitami, ale také cílenou osvětou. Navrhujeme konkrétní řešení uplatnění odpadních materiálů, a to nejenom pro zákazníky v ČR, ale i v zahraničí.';
+            }
+            // Clear any additional content
+            for (let i = 2; i <= 19; i++) {
+                const element = document.getElementById(`textContent${i}`);
+                if (element) element.innerHTML = '';
+            }
+            // Set default gallery images
+            const gallery = document.getElementById('gallery');
+            if (gallery) {
+                gallery.innerHTML = `
+                    <div class="gallery-item">
+                        <img src="image/foto3.png" alt="Technologie" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="image/MP4.jpg" alt="Modulový plot" loading="lazy">
+                    </div>
+                `;
+            }
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+    
     const navbarLinks = document.querySelectorAll('.navbar a');
     const pageTitle = document.getElementById('pageTitle');
     const textContent1 = document.getElementById('textContent1');
@@ -108,12 +140,9 @@ document.addEventListener('DOMContentLoaded', function () {
         'Technologie': {
             title: 'Technologie',
             text1: "Společnost EKOSTAT a.s. se zabývá využitím širokému okruhu odpadních materiálů. Největší pozornost věnujeme zpracování prašných anorganických odpadů, stavebních a demoličních odpadů a odpadních plastů. Stavíme na moderních řešeních, která vedou v průmyslu výroby stavebních hmot a zpracování odpadů ke snižování nákladů a zároveň ke snižování spotřeby přírodních neobnovitelných zdrojů. Opíráme se o vlastní, více jak 20leté zkušenosti v oblasti zpracování vybraných odpadů a jejich praktické využití. Našim cílem je přispívat k udržitelné výrobě stavebních materiálů, a to nejenom efektivním využitím dostupných odpadních materiálů, spoluprací s výrobci stavebních hmot a municipalitami, ale také cílenou osvětou. Navrhujeme konkrétní řešení uplatnění odpadních materiálů, a to nejenom pro zákazníky v ČR, ale i v zahraničí.",
-            textContent18: "ahoj",
             images: [
-                { src: 'image/foto1.png', alt: 'foto 1' },
-                { src: 'image/foto2.png', alt: 'foto 2' },
-                { src: 'image/foto3.png', alt: 'foto 3' },
-                { src: 'image/foto4.png', alt: 'foto 4' }
+                { src: 'image/foto3.png', alt: 'Technologie' },
+                { src: 'image/MP4.jpg', alt: 'Modulový plot' }
             ]
         },
         'Umělé kamenivo': {
@@ -144,6 +173,7 @@ document.addEventListener('DOMContentLoaded', function () {
             title: 'Chytré kontejnery',
             text1: 'Představujeme inovativní řešení pro efektivní třídění odpadu v obcích a městech. Naše chytré kontejnery jsou vybaveny technologiemi pro sledování jejich naplnění, což umožňuje efektivní plánování svozu odpadu.',
             text2: 'Systém zahrnuje senzory, které monitorují stav naplnění kontejnerů a tyto informace jsou dostupné v online rozhraní. To umožňuje optimalizovat trasování svozových vozů a snižovat náklady na odvoz odpadu.',
+            text3: 'Veškeré podrobnosti najdete na: <a href="https://www.recyclesound.info/" target="_blank" rel="noopener noreferrer">Recyclesound.info</a>',
             images: [
                 { src: 'image/smart1.jpg', alt: 'smart 1' },
                 { src: 'image/smart2.jpg', alt: 'smart 2' },
@@ -162,8 +192,8 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         'Osvětové hlásiče': {
             title: 'Osvětové hlásiče',
-            text1: 'Naše osvětlovací a signalizační systémy zajišťují bezpečný pohyb v různých typech budov a veřejných prostor. Nabízíme široké spektrum řešení od základního osvětlení po komplexní bezpečnostní systémy.',
-            text2: 'Naše produkty splňují všechny platné normy a předpisy týkající se osvětlení a signalizace. Zaměřujeme se na energetickou účinnost a dlouhou životnost našich řešení.',
+            text1: 'Moderní osvěta s umístěním designových hlásičů na veřejné prostranství, skrytě i do kontejnerů na tříděný odpad. Hlásiče jsou nástrojem pro operativní komunikaci informací, instrukcí a vzdělávání. Hlásiče je možné využívat v různých odvětvích, od veřejných prostor a institucí, školy, sportoviště, nemocnice až po průmyslové provozy s cílem vzdělávat, navigovat nebo instruovat.',
+            text2: 'Veškeré podrobnosti najdete na: <a href="https://www.recyclesound.info/" target="_blank" rel="noopener noreferrer">Recyclesound.info</a>',
             images: [
                 { src: 'image/Hlasic1.png', alt: 'Hlasic1' },
                 { src: 'image/Hlasic3.png', alt: 'Hlasic2' },
@@ -171,8 +201,9 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         'Mobilní kontejnery': {
             title: 'Mobilní kontejnery',
-            text1: 'Poskytujeme pronájem mobilních kontejnerů různé velikosti pro stavební práce, rekonstrukce, úklidové práce a další účely. Naše kontejnery jsou vyrobeny z kvalitních materiálů a jsou k dispozici v různých objemech.',
-            text2: 'Výhody našich mobilních kontejnerů zahrnují snadnou manipulaci, odolnost vůči povětrnostním vlivům a možnost přepravy na požadované místo. Zajišťujeme také včasné vyvážení a ekologickou likvidaci odpadu.',
+            text1: 'Mobilní kontejnery poskytují maximální flexibilitu v odpadovém hospodářství obcí a měst. Řeší lokální ekonomiku, zaměstnávání obyvatel, odstraňují drahé svozy, dovolují pružně reagovat na zaplnění.',
+            text2: 'Mohou být využity pro směsný komunální odpad i všechny tříděné složky. Nabízí velký objem i komfort pro občany i obsluhu.',
+            text3: 'Veškeré podrobnosti najdete na: <a href="https://www.recyclesound.info/" target="_blank" rel="noopener noreferrer">Recyclesound.info</a>',
             images: [
                 { src: 'image/Mobil1.jpg', alt: 'Mobil1' },
                 { src: 'image/Mobil2.jpg', alt: 'Mobil2' },
@@ -540,7 +571,7 @@ navbarLinks.forEach(function (link) {
             if (content[nadpisKey]) {
                 textContentElement.innerHTML = `<strong>${content[nadpisKey]}</strong><br>${content[contentKey]}`;
             } else {
-                textContentElement.innerText = content[contentKey] || '';
+                textContentElement.innerHTML = content[contentKey] || '';
             }
         }
 
