@@ -146,10 +146,18 @@ document.addEventListener('DOMContentLoaded', function () {
             ]
         },
         'Umělé kamenivo': {
-            title: 'Umělé kamenivo',
-            text1: 'Naše společnost se specializuje na výrobu a prodej umělého kameniva pro stavební účely. Nabízíme široký sortiment umělého kameniva v různých frakcích a barvách, které nachází uplatnění v architektonických a stavebních projektech.',
-            text2: 'Výhody našich umělých kameniv zahrnují vysokou odolnost vůči povětrnostním vlivům, mrazuvzdornost a dlouhou životnost. Naše kamenivo je vyráběno z kvalitních materiálů s důrazem na ekologickou šetrnost výrobního procesu.',
-            text3: 'Díky široké škále barev a tvarů umožňujeme realizaci různorodých architektonických konceptů. Naše umělé kamenivo je vhodné pro použití v interiérech i exteriérech.',
+            title: 'Lehké umělé kamenivo EKOSTAB',
+            nadpis1: 'Cenově výhodné a ekologické řešení pro suché podlahy zásypy a vyrovnávací vrstvy',
+            text1: "",
+            text2: 'Inovativní materiál pro efektivní a udržitelné podlahy',
+            nadpis4: "Hlavní výhody kameniva EKOSTAB při realizaci suchých podlah",
+            text4: "",
+            nadpis5:"Nízká hmotnost",
+            text5: "Umělé kamenivo EKOSTAB je lehké, se sypnou objemovou hmotností od 490 kg/m3. Použití lehkého umělého kameniva EKOSTAB zjednodušuje jeho manipulaci, urychluje budování suchých podlah, snižuje náklady na jejich výstavbu a zvyšuje jejich kvalitu a užitné vlastnosti.",
+            nadpis6: 'Cenová dostupnost',
+            text6: "Ekonomická výhodnost použití lehkého umělého kameniva EKOSTAB činí tento materiál cenově nejvýhodnějším pro široké spektrum stavebních projektů.",
+            nadpis7: 'Ekologický a ekonomický přínos',
+            text7: "Lehké umělé kamenivo EKOSTAB je ekologicky šetrné řešení, které přispívá k udržitelnosti a jeho efektivita při použití ve stavebnictví snižuje náklady na výstavbu.",
             images: [
                 { src: 'image/kamenivo1.jpg', alt: 'kamenivo 1' },
                 { src: 'image/kamenivo2.jpg', alt: 'kamenivo 2' },
