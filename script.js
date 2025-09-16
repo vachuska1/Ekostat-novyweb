@@ -19,7 +19,13 @@ document.addEventListener('DOMContentLoaded', function () {
             if (gallery) {
                 gallery.innerHTML = `
                     <div class="gallery-item">
-                        <img src="image/foto3.png" alt="Technologie" loading="lazy">
+                        <img src="image/foto2.png" alt="Technologie" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="image/kamenivo4.jpg" alt="Kamenivo 4" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="image/kamenivo3.jpg" alt="Kamenivo 3" loading="lazy">
                     </div>
                     <div class="gallery-item">
                         <img src="image/MP4.jpg" alt="Modulový plot" loading="lazy">
@@ -141,7 +147,9 @@ document.addEventListener('DOMContentLoaded', function () {
             title: 'Technologie',
             text1: "Společnost EKOSTAT a.s. se zabývá využitím širokému okruhu odpadních materiálů. Největší pozornost věnujeme zpracování prašných anorganických odpadů, stavebních a demoličních odpadů a odpadních plastů. Stavíme na moderních řešeních, která vedou v průmyslu výroby stavebních hmot a zpracování odpadů ke snižování nákladů a zároveň ke snižování spotřeby přírodních neobnovitelných zdrojů. Opíráme se o vlastní, více jak 20leté zkušenosti v oblasti zpracování vybraných odpadů a jejich praktické využití. Našim cílem je přispívat k udržitelné výrobě stavebních materiálů, a to nejenom efektivním využitím dostupných odpadních materiálů, spoluprací s výrobci stavebních hmot a municipalitami, ale také cílenou osvětou. Navrhujeme konkrétní řešení uplatnění odpadních materiálů, a to nejenom pro zákazníky v ČR, ale i v zahraničí.",
             images: [
-                { src: 'image/foto3.png', alt: 'Technologie' },
+                { src: 'image/foto2.png', alt: 'Technologie' },
+                { src: 'image/kamenivo4.jpg', alt: 'Kamenivo 4' },
+                { src: 'image/kamenivo3.jpg', alt: 'Kamenivo 3' },
                 { src: 'image/MP4.jpg', alt: 'Modulový plot' }
             ]
         },
@@ -159,8 +167,6 @@ document.addEventListener('DOMContentLoaded', function () {
             nadpis7: 'Ekologický a ekonomický přínos',
             text7: "Lehké umělé kamenivo EKOSTAB je ekologicky šetrné řešení, které přispívá k udržitelnosti a jeho efektivita při použití ve stavebnictví snižuje náklady na výstavbu.",
             images: [
-                { src: 'image/kamenivo1.jpg', alt: 'kamenivo 1' },
-                { src: 'image/kamenivo2.jpg', alt: 'kamenivo 2' },
                 { src: 'image/kamenivo3.jpg', alt: 'kamenivo 3' },
                 { src: 'image/kamenivo4.jpg', alt: 'kamenivo 4' }
             ]
@@ -352,7 +358,13 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         'Výrobky, fotogalerie': {
             title: 'Výrobky, fotogalerie',
-            text1: 'Zde budou výrobky'
+            text1: 'Naše výrobky',
+            images: [
+                { src: 'image/foto2.png', alt: 'Technologie' },
+                { src: 'image/kamenivo4.jpg', alt: 'Kamenivo 4' },
+                { src: 'image/kamenivo3.jpg', alt: 'Kamenivo 3' },
+                { src: 'image/MP4.jpg', alt: 'Modulový plot' }
+            ]
         },
         'Download': {
             title: 'Ke stažení',
@@ -569,7 +581,9 @@ navbarLinks.forEach(function (link) {
         const dataContent = link.getAttribute('data-content');
         const content = contentTexts[dataContent];
 
-        pageTitle.innerText = content.title;
+        if (content && content.title) {
+            pageTitle.innerText = content.title;
+        }
 
         for (let i = 1; i <= 18; i++) {
             const textContentElement = eval(`textContent${i}`);

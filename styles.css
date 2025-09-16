@@ -28,13 +28,15 @@ body {
     line-height: 1.7;
     color: var(--dark-gray);
     background-color: var(--white);
-    padding-top: 80px; /* Space for fixed header */
+    padding: 0;
     margin: 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
     position: relative;
+    padding-top: 60px; /* Matches navbar height */
+    box-sizing: border-box;
 }
 
 /* Main Content */
@@ -43,9 +45,12 @@ body {
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 2rem 20px;
+    padding: 0 20px 2rem;
     position: relative;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Reduced gap between sections */
 }
 
 /* Modern Container */
@@ -62,7 +67,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 80px;
+    height: 60px; /* Reduced from 80px */
     background: var(--primary-color);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
@@ -71,7 +76,7 @@ body {
 }
 
 .navbar.scrolled {
-    height: 70px;
+    height: 50px; /* Reduced from 70px */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
@@ -235,31 +240,41 @@ ul {
 .Icon {
     display: none;
 }
-  
-/* Galerie obrázků */
+
+/* Gallery Container */
 .gallery-container {
-    padding: 1rem 0;
+    order: 2;
+    padding: 2rem 0;
     background-color: #f9f9f9;
     border-radius: 10px;
+    width: 100%;
+    margin: 0 auto;
 }
 
 #gallery {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
-    max-width: 1300px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0rem;
+    padding: 0 1rem;
 }
 
 .gallery-item {
     position: relative;
-    border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: var(--transition);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     aspect-ratio: 16/9;
+}
+
+.gallery-item img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
 }
 
 /* Responsive styles for gallery */
@@ -290,9 +305,13 @@ ul {
 
 /* Content Section */
 .content-container {
+    order: 1;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 3rem 0rem;
+    padding: 1.5rem 1rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
 }
 
 .content {
@@ -317,6 +336,14 @@ ul {
     color: #444;
 }
 
+/* Hide empty text content paragraphs */
+.text-content:empty {
+    display: none;
+    margin: 0;
+    padding: 0;
+    height: 0;
+}
+
 /* Buttons */
 .btn {
     display: inline-block;
@@ -338,8 +365,8 @@ ul {
 .contentCont {
     max-width: 1400px;
     height: auto;
-    margin: 1rem auto;
-    padding: 2rem;
+    margin: 0.5rem auto; /* Reduced top and bottom margin */
+    padding: 1.5rem; /* Reduced padding */
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -460,7 +487,13 @@ ul {
     }
 
     #gallery {
-        grid-template-columns: 1fr; /* Změna na 1 sloupec */
+        grid-template-columns: 1fr;
+        max-width: 600px;
+    }
+    
+    .gallery-item {
+        max-width: 100%;
+        margin: 0 auto;
     }
     
     
