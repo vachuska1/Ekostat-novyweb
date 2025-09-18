@@ -575,11 +575,209 @@ const pdfLink9 = document.createElement('a');
 pdfLink9.innerText = 'Certificate Composite basalt mesh';
 pdfLink9.target = '_blank'; 
 
+// Function to update page content based on hash
+function loadContentFromHash() {
+    const hash = window.location.hash.substring(1);
+    if (!hash) return;
+    
+    // Find the link that matches this hash
+    const matchingLink = Array.from(navbarLinks).find(link => {
+        const linkText = link.textContent.trim().toLowerCase().replace(/\s+/g, '-');
+        return linkText === hash.toLowerCase();
+    });
+    
+    if (matchingLink) {
+        const dataContent = matchingLink.getAttribute('data-content');
+        const content = contentTexts[dataContent];
+        updatePageContent(content, dataContent);
+    }
+}
+
+// Handle initial page load
+window.addEventListener('load', function() {
+    if (window.location.hash) {
+        loadContentFromHash();
+    } else {
+        // Default to Technologie if no hash
+        const defaultContent = contentTexts['Technologie'];
+        updatePageContent(defaultContent, 'Technologie');
+        window.location.hash = 'technologie';
+    }
+});
+
+// Handle back/forward navigation
+window.addEventListener('popstate', loadContentFromHash);
+
+// Function to update page content
+function updatePageContent(content, dataContent) {
+    if (!content) return;
+    
+    // Update page title
+    if (pageTitle) {
+        pageTitle.textContent = content.title || dataContent;
+    }
+    
+    // Update main content
+    if (mainContent) {
+        mainContent.innerHTML = ''; // Clear existing content
+        
+        // Add title if exists
+        if (content.title) {
+            const titleElement = document.createElement('h1');
+            titleElement.textContent = content.title;
+            mainContent.appendChild(titleElement);
+        }
+        
+        // Add text content
+        for (let i = 1; i <= 10; i++) {
+            const textKey = 'text' + i;
+            if (content[textKey]) {
+                const p = document.createElement('p');
+                p.textContent = content[textKey];
+                mainContent.appendChild(p);
+            }
+        }
+        
+        // Add images if they exist
+        if (content.images && Array.isArray(content.images)) {
+            const gallery = document.createElement('div');
+            gallery.className = 'gallery';
+            
+            content.images.forEach(image => {
+                if (image && image.src) {
+                    const imgContainer = document.createElement('div');
+                    imgContainer.className = 'gallery-item';
+                    
+                    const img = document.createElement('img');
+                    img.src = image.src;
+                    img.alt = image.alt || '';
+                    
+                    imgContainer.appendChild(img);
+                    gallery.appendChild(imgContainer);
+                }
+            });
+            
+            mainContent.appendChild(gallery);
+        }
+    }
+    
+    // Update active state of navbar links
+    navbarLinks.forEach(navLink => {
+        if (navLink.getAttribute('data-content') === dataContent) {
+            navLink.classList.add('active');
+        } else {
+            navLink.classList.remove('active');
+        }
+    });
+}
+
+// Function to update URL hash and page content
+function navigateToPage(link) {
+    const dataContent = link.getAttribute('data-content');
+    const content = contentTexts[dataContent];
+    
+    if (!content) return;
+    
+    // Update URL hash with page name
+    const pageName = link.textContent.trim().toLowerCase().replace(/\s+/g, '-');
+    window.history.pushState({}, '', '#' + pageName);
+    
+    // Update page title
+    if (pageTitle) {
+        pageTitle.innerText = content.title || dataContent;
+    }
+    
+    // Update main content
+    if (mainContent) {
+        mainContent.innerHTML = ''; // Clear existing content
+        
+        // Add text content
+        for (let i = 1; i <= 18; i++) {
+            const contentKey = `text${i}`;
+            if (content[contentKey]) {
+                const p = document.createElement('p');
+                p.textContent = content[contentKey];
+                mainContent.appendChild(p);
+            }
+        }
+        
+        // Add images if they exist
+        if (content.images && Array.isArray(content.images)) {
+            const gallery = document.createElement('div');
+            gallery.className = 'gallery';
+            
+            content.images.forEach(image => {
+                if (image && image.src) {
+                    const imgContainer = document.createElement('div');
+                    imgContainer.className = 'gallery-item';
+                    
+                    const img = document.createElement('img');
+                    img.src = image.src;
+                    img.alt = image.alt || '';
+                    
+                    imgContainer.appendChild(img);
+                    gallery.appendChild(imgContainer);
+                }
+            });
+            
+            mainContent.appendChild(gallery);
+        }
+    }
+    
+    // Update active state of navbar links
+    navbarLinks.forEach(navLink => {
+        if (navLink.getAttribute('data-content') === dataContent) {
+            navLink.classList.add('active');
+        } else {
+            navLink.classList.remove('active');
+        }
+    });
+}
+
+// Handle initial page load
+window.addEventListener('load', function() {
+    if (window.location.hash) {
+        const hash = window.location.hash.substring(1);
+        const matchingLink = Array.from(navbarLinks).find(link => {
+            const linkText = link.textContent.trim().toLowerCase().replace(/\s+/g, '-');
+            return linkText === hash.toLowerCase();
+        });
+        
+        if (matchingLink) {
+            navigateToPage(matchingLink);
+            return;
+        }
+    }
+    
+    // If no valid hash or no matching link, default to first link
+    if (navbarLinks.length > 0) {
+        const defaultLink = navbarLinks[0];
+        const pageName = defaultLink.textContent.trim().toLowerCase().replace(/\s+/g, '-');
+        window.history.replaceState({}, '', '#' + pageName);
+        navigateToPage(defaultLink);
+    }
+});
+
+// Handle back/forward navigation
+window.addEventListener('popstate', function() {
+    if (window.location.hash) {
+        const hash = window.location.hash.substring(1);
+        const matchingLink = Array.from(navbarLinks).find(link => {
+            const linkText = link.textContent.trim().toLowerCase().replace(/\s+/g, '-');
+            return linkText === hash.toLowerCase();
+        });
+        
+        if (matchingLink) {
+            navigateToPage(matchingLink);
+        }
+    }
+});
+
+// Set up click handlers for navbar links
 navbarLinks.forEach(function (link) {
     link.addEventListener('click', function (e) {
         e.preventDefault();
-        const dataContent = link.getAttribute('data-content');
-        const content = contentTexts[dataContent];
+        navigateToPage(link);
 
         if (content && content.title) {
             pageTitle.innerText = content.title;
